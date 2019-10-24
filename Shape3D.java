@@ -23,7 +23,7 @@ public class Shape3D {
     }
     
     public void printSA(){
-        if (volume>=0){
+        if (SA>=0){
         System.out.println("The surface area of this 3D shape is " + Math.round(SA));
         }
         else System.out.println("The surface area of this 3D shape is unknown");
