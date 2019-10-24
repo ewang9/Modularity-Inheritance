@@ -10,4 +10,12 @@ public class Sphere extends Shape3D{
         this.SA = Math.pow(rad,2)*Math.PI*4;
         this.volume = Math.pow(rad,3)*Math.PI*4/3;
     }
+    public Sphere(){
+        
+    }
+    public void setRad(double r){
+        this.rad = r;
+        this.SA = Math.pow(rad,2)*Math.PI*4;
+        this.volume = Math.pow(rad,3)*Math.PI*4/3;
+    }
 }
