@@ -1,8 +1,8 @@
 package modularityproject;
 
 public class Pyramid extends Shape3D{
-    public double baseArea = -1;
-    public double height = -1;
+    protected double baseArea = -1;
+    protected double height = -1;
     
     public Pyramid(double base, double h){
         this.baseArea = base;
@@ -12,6 +12,14 @@ public class Pyramid extends Shape3D{
     
     public Pyramid(){
         
+    }
+    
+    public void setBase(double b){
+        this.baseArea = b;
+    }
+    
+    public void setHeight(double h){
+        this.height = h;
     }
     
     public void calcVolume(){

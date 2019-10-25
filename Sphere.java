@@ -3,7 +3,7 @@ package modularityproject;
 import java.lang.Math;
 
 public class Sphere extends Shape3D{
-    public double rad;
+    protected double rad;
     
     public Sphere(double radius){
         this.rad = radius;

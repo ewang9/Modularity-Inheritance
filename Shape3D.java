@@ -3,8 +3,8 @@ package modularityproject;
 import java.lang.Math;
 
 public class Shape3D {
-    public double volume = -1;
-    public double SA = -1;
+    protected double volume = -1;
+    protected double SA = -1;
     
     public Shape3D(double v, double sa){
         this.volume = v;
@@ -13,6 +13,14 @@ public class Shape3D {
     
     public Shape3D(){
         
+    }
+    
+    public void setVolume(double v){
+        this.volume = v;
+    }
+    
+    public void setSA(double SA){
+        this.SA = SA;
     }
     
     public void printVolume(){

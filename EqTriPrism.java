@@ -19,9 +19,6 @@ public class EqTriPrism extends Prism{
     public void setWidth(double w){
         this.altitude = w;
     }
-    public void setHeight(double h){
-        this.height = h;
-    }
     
     @Override
     public void calcVolume(){
@@ -40,6 +37,6 @@ public class EqTriPrism extends Prism{
         else System.out.println("Surface area is unknown");
     }
     
-    public double altitude = -1;
-    public double sideLength = -1;
+    protected double altitude = -1;
+    protected double sideLength = -1;
 }

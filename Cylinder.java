@@ -12,9 +12,7 @@ public class Cylinder extends Prism{
     public void setRad(double r){
         this.rad = r;
     }
-    public void setHeight(double h){
-        this.height = h;
-    }
+
     @Override
     public void calcVolume(){
         if (rad >= 0 && height>=0){
@@ -32,5 +30,5 @@ public class Cylinder extends Prism{
         else System.out.println("Surface area is unknown");
     }
     
-    public double rad = -1;
+    protected double rad = -1;
 }
