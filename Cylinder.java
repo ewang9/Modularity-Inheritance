@@ -5,6 +5,8 @@ public class Cylinder extends Prism{
     public Cylinder(double rad, double height){
         this.rad = rad;
         this.height = height;
+        this.volume = Math.pow(rad,2)*height*Math.PI;
+        this.SA = (Math.pow(rad,2)*Math.PI*2)+(2*Math.PI*rad*height);
     }
     public Cylinder(){
         
