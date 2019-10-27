@@ -5,7 +5,7 @@ import java.lang.NumberFormatException;
 
 public class ModularityProject {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to the volume/surface area calculator");
         System.out.println("Enter the word \"home\" at any time to return to this home page, or exit to exit the program"); 
@@ -69,28 +69,37 @@ public class ModularityProject {
                         }
                         else if (input.equalsIgnoreCase("radius")) {
                         	System.out.println("What is it?");
-                        	do {
-	                            input = sc.nextLine();
-	                            if (input.equalsIgnoreCase("home")) {
-	                            	break;
-	                            }
-	                            else if (input.equalsIgnoreCase("exit")) {
-	                            	break;
-	                            }
-	                            try {
-	                            	rad = Double.parseDouble(input);
-	                            }
-	                            catch (NumberFormatException e) {
-	                            	System.out.println("That's not a valid radius, please try again.");
-	                            	continue;
-	                            }
-	                            if (rad<0) {
-	                                System.out.println("That's a negative radius. That's not possible. Please enter the correct radius.");
-	                                rad = 0;
-	                                continue;
-	                            }
-	                            break;
-                        	} while (!input.equalsIgnoreCase("exit"));
+//                        	do {
+//	                            input = sc.nextLine();
+//	                            if (input.equalsIgnoreCase("home")) {
+//	                            	break;
+//	                            }
+//	                            else if (input.equalsIgnoreCase("exit")) {
+//	                            	break;
+//	                            }
+//	                            try {
+//	                            	rad = Double.parseDouble(input);
+//	                            }
+//	                            catch (NumberFormatException e) {
+//	                            	System.out.println("That's not a valid radius, please try again.");
+//	                            	continue;
+//	                            }
+//	                            if (rad<0) {
+//	                                System.out.println("That's a negative radius. That's not possible. Please enter the correct radius.");
+//	                                rad = 0;
+//	                                continue;
+//	                            }
+//	                            break;
+//                        	} while (!input.equalsIgnoreCase("exit"));
+                        	rad = getValue("radius");
+                        	if (rad == -1) {
+                        		input = "home";
+                        		break;
+                        	}
+                        	else if (rad == -2) {
+                        		input = "exit";
+                        		break;
+                        	}
                         	sphere2.setRad(rad);
                         	sphere2.printSA();
                         	sphere2.printVolume();
@@ -133,64 +142,76 @@ public class ModularityProject {
 	                    	break;
 	                    } 
 	                    else if (input.trim().equalsIgnoreCase("yes") || input.trim().equalsIgnoreCase("y")){
-	                    	 System.out.println("What is the radius?");
-	                    	 do {
-		                         input = sc.nextLine();
-		                         if (input.equalsIgnoreCase("home")) {
-		                         	break;
+	                    	 //System.out.println("What is the radius?");
+//	                    	 do {
+//		                         input = sc.nextLine();
+//		                         if (input.equalsIgnoreCase("home")) {
+//		                         	break;
+//		                         }
+//		                         else if (input.equalsIgnoreCase("exit")) {
+//		                         	break;
+//		                         }
+//		                         try {
+//		                         	rad = Double.parseDouble(input);
+//		                         }
+//		                         catch (NumberFormatException e) {
+//		                         	System.out.println("That's not a valid radius, please enter the radius again: ");
+//		                         	continue;
+//		                         }
+//		                         if (rad<0) {
+//		                             System.out.println("That's a negative radius. That's not possible. Please enter the correct radius.");
+//		                             rad = 0;
+//		                             continue;
+//		                         }
+//		                         break;
+//	                    	 } while (!input.equalsIgnoreCase("exit"));
+	                    	 rad = getValue("radius");
+	                    	 if (rad == -1) {
+		                         input = "home";	
+	                    		 break;
 		                         }
-		                         else if (input.equalsIgnoreCase("exit")) {
-		                         	break;
+		                     if (rad == -2) {
+		                         input = "exit";	
+		                    	 break;
 		                         }
-		                         try {
-		                         	rad = Double.parseDouble(input);
+//		                     System.out.println("Now, what is the height?");
+//	                    	 do {
+//		                         input = sc.nextLine();
+//		                         if (input.equalsIgnoreCase("home")) {
+//		                         	break;
+//		                         }
+//		                         else if (input.equalsIgnoreCase("exit")) {
+//		                         	break;
+//		                         }
+//		                         try {
+//		                         	height = Double.parseDouble(input);
+//		                         }
+//		                         catch (NumberFormatException e) {
+//		                         	System.out.println("That's not a valid height, please enter the height again: ");
+//		                         	continue;
+//		                         }
+//		                         if (height<0) {
+//		                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//		                             height = 0;
+//		                             continue;
+//		                         }
+//		                         break;
+//	                    	 } while (!input.equalsIgnoreCase("exit"));
+		                     height = getValue("height");
+		                     if (height == -1) {
+		                         input = "home";	
+	                    		 break;
 		                         }
-		                         catch (NumberFormatException e) {
-		                         	System.out.println("That's not a valid radius, please enter the radius again: ");
-		                         	continue;
+		                     if (height == -2) {
+		                         input = "exit";	
+		                    	 break;
 		                         }
-		                         if (rad<0) {
-		                             System.out.println("That's a negative radius. That's not possible. Please enter the correct radius.");
-		                             rad = 0;
-		                             continue;
-		                         }
-		                         break;
-	                    	 } while (!input.equalsIgnoreCase("exit"));
-	                    	 if (input.equalsIgnoreCase("home")) {
-		                         	break;
-		                         }
-		                     if (input.equalsIgnoreCase("exit")) {
-		                         	break;
-		                         }
-		                     System.out.println("Now, what is the height?");
-	                    	 do {
-		                         input = sc.nextLine();
-		                         if (input.equalsIgnoreCase("home")) {
-		                         	break;
-		                         }
-		                         else if (input.equalsIgnoreCase("exit")) {
-		                         	break;
-		                         }
-		                         try {
-		                         	height = Double.parseDouble(input);
-		                         }
-		                         catch (NumberFormatException e) {
-		                         	System.out.println("That's not a valid height, please enter the height again: ");
-		                         	continue;
-		                         }
-		                         if (height<0) {
-		                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-		                             height = 0;
-		                             continue;
-		                         }
-		                         break;
-	                    	 } while (!input.equalsIgnoreCase("exit"));
-	                    	 if (input.equalsIgnoreCase("home")) {
-		                         	break;
-		                         }
-		                     if (input.equalsIgnoreCase("exit")) {
-		                         	break;
-		                         }
+//	                    	 if (input.equalsIgnoreCase("home")) {
+//		                         	break;
+//		                         }
+//		                     if (input.equalsIgnoreCase("exit")) {
+//		                         	break;
+//		                         }
 		                     if (type.equals("prism")) {
 		                 		Cylinder cylinder1 = new Cylinder(rad,height);
 		                 		cylinder1.printSA();
@@ -218,63 +239,81 @@ public class ModularityProject {
 	                        	break;
 	                        }
 	                        else if (input.equalsIgnoreCase("dimensions")) {
-	                        	System.out.println("What is the radius?");
-		                    	 do {
-			                         input = sc.nextLine();
-			                         if (input.equalsIgnoreCase("home")) {
-			                         	break;
+//	                        	System.out.println("What is the radius?");
+//		                    	 do {
+//			                         input = sc.nextLine();
+//			                         if (input.equalsIgnoreCase("home")) {
+//			                         	break;
+//			                         }
+//			                         else if (input.equalsIgnoreCase("exit")) {
+//			                         	break;
+//			                         }
+//			                         try {
+//			                         	rad = Double.parseDouble(input);
+//			                         }
+//			                         catch (NumberFormatException e) {
+//			                         	System.out.println("That's not a valid radius, please enter the radius again: ");
+//			                         	continue;
+//			                         }
+//			                         if (rad<0) {
+//			                             System.out.println("That's a negative radius. That's not possible. Please enter the correct radius.");
+//			                             rad = 0;
+//			                             continue;
+//			                         }
+//			                         break;
+//		                    	 } while (!input.equalsIgnoreCase("exit"));
+//		                    	 if (input.equalsIgnoreCase("home")) {
+//			                         	break;
+//			                         }
+//			                     if (input.equalsIgnoreCase("exit")) {
+//			                         	break;
+//			                         }
+	                        	rad = getValue("radius");
+			                     if (rad == -1) {
+			                         input = "home";	
+		                    		 break;
 			                         }
-			                         else if (input.equalsIgnoreCase("exit")) {
-			                         	break;
+			                     if (rad == -2) {
+			                         input = "exit";	
+			                    	 break;
 			                         }
-			                         try {
-			                         	rad = Double.parseDouble(input);
+//			                     System.out.println("Now, what is the height?");
+//		                    	 do {
+//			                         input = sc.nextLine();
+//			                         if (input.equalsIgnoreCase("home")) {
+//			                         	break;
+//			                         }
+//			                         else if (input.equalsIgnoreCase("exit")) {
+//			                         	break;
+//			                         }
+//			                         try {
+//			                         	height = Double.parseDouble(input);
+//			                         }
+//			                         catch (NumberFormatException e) {
+//			                         	System.out.println("That's not a valid height, please enter the height again: ");
+//			                         	continue;
+//			                         }
+//			                         if (height<0) {
+//			                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//			                             height = 0;
+//			                             continue;
+//			                         }
+//			                         break;
+//		                    	 } while (!input.equalsIgnoreCase("exit"));
+//		                    	 if (input.equalsIgnoreCase("home")) {
+//			                         	break;
+//			                         }
+//			                     if (input.equalsIgnoreCase("exit")) {
+//			                         	break;
+//			                         }
+			                     height = getValue("height");
+			                     if (height == -1) {
+			                         input = "home";	
+		                    		 break;
 			                         }
-			                         catch (NumberFormatException e) {
-			                         	System.out.println("That's not a valid radius, please enter the radius again: ");
-			                         	continue;
-			                         }
-			                         if (rad<0) {
-			                             System.out.println("That's a negative radius. That's not possible. Please enter the correct radius.");
-			                             rad = 0;
-			                             continue;
-			                         }
-			                         break;
-		                    	 } while (!input.equalsIgnoreCase("exit"));
-		                    	 if (input.equalsIgnoreCase("home")) {
-			                         	break;
-			                         }
-			                     if (input.equalsIgnoreCase("exit")) {
-			                         	break;
-			                         }
-			                     System.out.println("Now, what is the height?");
-		                    	 do {
-			                         input = sc.nextLine();
-			                         if (input.equalsIgnoreCase("home")) {
-			                         	break;
-			                         }
-			                         else if (input.equalsIgnoreCase("exit")) {
-			                         	break;
-			                         }
-			                         try {
-			                         	height = Double.parseDouble(input);
-			                         }
-			                         catch (NumberFormatException e) {
-			                         	System.out.println("That's not a valid height, please enter the height again: ");
-			                         	continue;
-			                         }
-			                         if (height<0) {
-			                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-			                             height = 0;
-			                             continue;
-			                         }
-			                         break;
-		                    	 } while (!input.equalsIgnoreCase("exit"));
-		                    	 if (input.equalsIgnoreCase("home")) {
-			                         	break;
-			                         }
-			                     if (input.equalsIgnoreCase("exit")) {
-			                         	break;
+			                     if (height == -2) {
+			                         input = "exit";	
+			                    	 break;
 			                         }
 			                     if (type.equals("prism")) {
 			                 		cylinder1.setRad(rad);
@@ -314,93 +353,120 @@ public class ModularityProject {
                     	break;
                     } 
                     else if (input.trim().equalsIgnoreCase("yes") || input.trim().equalsIgnoreCase("y")){
-                    	 System.out.println("What is the side length of the triangular base?");
-                    	 do {
-	                         input = sc.nextLine();
-	                         if (input.equalsIgnoreCase("home")) {
-	                         	break;
-	                         }
-	                         else if (input.equalsIgnoreCase("exit")) {
-	                         	break;
-	                         }
-	                         try {
-	                         	bLength = Double.parseDouble(input);
-	                         }
-	                         catch (NumberFormatException e) {
-	                         	System.out.println("That's not a valid length, please enter the length again: ");
-	                         	continue;
-	                         }
-	                         if (bLength<0) {
-	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
-	                             bLength = 0;
-	                             continue;
-	                         }
-	                         break;
-                    	 } while (!input.equalsIgnoreCase("exit"));
-                    	 if (input.equalsIgnoreCase("home")) {
-	                         	break;
-	                         }
-	                     if (input.equalsIgnoreCase("exit")) {
-	                         	break;
-	                         }
-	                     System.out.println("Now, what is the height of the triangular base?");
-                    	 do {
-	                         input = sc.nextLine();
-	                         if (input.equalsIgnoreCase("home")) {
-	                         	break;
-	                         }
-	                         else if (input.equalsIgnoreCase("exit")) {
-	                         	break;
-	                         }
-	                         try {
-	                         	bHeight = Double.parseDouble(input);
-	                         }
-	                         catch (NumberFormatException e) {
-	                         	System.out.println("That's not a valid height, please enter the height again: ");
-	                         	continue;
-	                         }
-	                         if (bHeight<0) {
-	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-	                             bHeight = 0;
-	                             continue;
-	                         }
-	                         break;
-                    	 } while (!input.equalsIgnoreCase("exit"));
-                    	 if (input.equalsIgnoreCase("home")) {
-	                         	break;
-	                         }
-	                     if (input.equalsIgnoreCase("exit")) {
-	                         	break;
-	                         }
-	                     System.out.println("Now, what is the vertical height of the prism?");
-                    	 do {
-	                         input = sc.nextLine();
-	                         if (input.equalsIgnoreCase("home")) {
-	                         	break;
-	                         }
-	                         else if (input.equalsIgnoreCase("exit")) {
-	                         	break;
-	                         }
-	                         try {
-	                         	vHeight = Double.parseDouble(input);
-	                         }
-	                         catch (NumberFormatException e) {
-	                         	System.out.println("That's not a valid height, please enter the height again: ");
-	                         	continue;
-	                         }
-	                         if (vHeight<0) {
-	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-	                             vHeight = 0;
-	                             continue;
-	                         }
-	                         break;
-                    	 } while (!input.equalsIgnoreCase("exit"));
-                    	 if (input.equalsIgnoreCase("home")) {
-	                         	break;
-	                         }
-	                     if (input.equalsIgnoreCase("exit")) {
-	                         	break;
-	                         }
+//                    	 System.out.println("What is the side length of the triangular base?");
+//                    	 do {
+//	                         input = sc.nextLine();
+//	                         if (input.equalsIgnoreCase("home")) {
+//	                         	break;
+//	                         }
+//	                         else if (input.equalsIgnoreCase("exit")) {
+//	                         	break;
+//	                         }
+//	                         try {
+//	                         	bLength = Double.parseDouble(input);
+//	                         }
+//	                         catch (NumberFormatException e) {
+//	                         	System.out.println("That's not a valid length, please enter the length again: ");
+//	                         	continue;
+//	                         }
+//	                         if (bLength<0) {
+//	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
+//	                             bLength = 0;
+//	                             continue;
+//	                         }
+//	                         break;
+//                    	 } while (!input.equalsIgnoreCase("exit"));
+//                    	 if (input.equalsIgnoreCase("home")) {
+//	                         	break;
+//	                         }
+//	                     if (input.equalsIgnoreCase("exit")) {
+//	                         	break;
+//	                         }
+                	 bLength = getValue("side length of the triangular base");
+                     if (bLength == -1) {
+                         input = "home";	
+                		 break;
+                         }
+                     if (bLength == -2) {
+                         input = "exit";	
+                    	 break;
+                         }
+//	                     System.out.println("Now, what is the height of the triangular base?");
+//                    	 do {
+//	                         input = sc.nextLine();
+//	                         if (input.equalsIgnoreCase("home")) {
+//	                         	break;
+//	                         }
+//	                         else if (input.equalsIgnoreCase("exit")) {
+//	                         	break;
+//	                         }
+//	                         try {
+//	                         	bHeight = Double.parseDouble(input);
+//	                         }
+//	                         catch (NumberFormatException e) {
+//	                         	System.out.println("That's not a valid height, please enter the height again: ");
+//	                         	continue;
+//	                         }
+//	                         if (bHeight<0) {
+//	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//	                             bHeight = 0;
+//	                             continue;
+//	                         }
+//	                         break;
+//                    	 } while (!input.equalsIgnoreCase("exit"));
+//                    	 if (input.equalsIgnoreCase("home")) {
+//	                         	break;
+//	                         }
+//	                     if (input.equalsIgnoreCase("exit")) {
+//	                         	break;
+//	                         }
+                     bHeight = getValue("height");
+                     if (bHeight == -1) {
+                         input = "home";	
+                		 break;
+                         }
+                     if (bHeight == -2) {
+                         input = "exit";	
+                    	 break;
+                         }
+//	                     System.out.println("Now, what is the vertical height of the prism?");
+//                    	 do {
+//	                         input = sc.nextLine();
+//	                         if (input.equalsIgnoreCase("home")) {
+//	                         	break;
+//	                         }
+//	                         else if (input.equalsIgnoreCase("exit")) {
+//	                         	break;
+//	                         }
+//	                         try {
+//	                         	vHeight = Double.parseDouble(input);
+//	                         }
+//	                         catch (NumberFormatException e) {
+//	                         	System.out.println("That's not a valid height, please enter the height again: ");
+//	                         	continue;
+//	                         }
+//	                         if (vHeight<0) {
+//	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//	                             vHeight = 0;
+//	                             continue;
+//	                         }
+//	                         break;
+//                    	 } while (!input.equalsIgnoreCase("exit"));
+//                    	 if (input.equalsIgnoreCase("home")) {
+//	                         	break;
+//	                         }
+//	                     if (input.equalsIgnoreCase("exit")) {
+//	                         	break;
+//	                         }
+                     vHeight = getValue("height");
+                     if (vHeight == -1) {
+                         input = "home";	
+                		 break;
+                         }
+                     if (vHeight == -2) {
+                         input = "exit";	
+                    	 break;
+                         }
 	                     if (type.equals("prism")) {
 	                 		EqTriPrism triPrism1 = new EqTriPrism(bHeight,bLength,vHeight);
 	                 		triPrism1.printSA();
@@ -428,93 +494,120 @@ public class ModularityProject {
                         	break;
                         }
                         else if (input.equalsIgnoreCase("dimensions")) {
-                        	System.out.println("What is the side length of the triangular base?");
-                       	 do {
-   	                         input = sc.nextLine();
-   	                         if (input.equalsIgnoreCase("home")) {
-   	                         	break;
-   	                         }
-   	                         else if (input.equalsIgnoreCase("exit")) {
-   	                         	break;
-   	                         }
-   	                         try {
-   	                         	bLength = Double.parseDouble(input);
-   	                         }
-   	                         catch (NumberFormatException e) {
-   	                         	System.out.println("That's not a valid length, please enter the length again: ");
-   	                         	continue;
-   	                         }
-   	                         if (bLength<0) {
-   	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
-   	                             bLength = 0;
-   	                             continue;
-   	                         }
-   	                         break;
-                       	 } while (!input.equalsIgnoreCase("exit"));
-                       	 if (input.equalsIgnoreCase("home")) {
-   	                         	break;
-   	                         }
-   	                     if (input.equalsIgnoreCase("exit")) {
-   	                         	break;
-   	                         }
-   	                     System.out.println("Now, what is the height of the triangular base?");
-                       	 do {
-   	                         input = sc.nextLine();
-   	                         if (input.equalsIgnoreCase("home")) {
-   	                         	break;
-   	                         }
-   	                         else if (input.equalsIgnoreCase("exit")) {
-   	                         	break;
-   	                         }
-   	                         try {
-   	                         	bHeight = Double.parseDouble(input);
-   	                         }
-   	                         catch (NumberFormatException e) {
-   	                         	System.out.println("That's not a valid height, please enter the height again: ");
-   	                         	continue;
-   	                         }
-   	                         if (bHeight<0) {
-   	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-   	                             bHeight = 0;
-   	                             continue;
-   	                         }
-   	                         break;
-                       	 } while (!input.equalsIgnoreCase("exit"));
-                       	 if (input.equalsIgnoreCase("home")) {
-   	                         	break;
-   	                         }
-   	                     if (input.equalsIgnoreCase("exit")) {
-   	                         	break;
-   	                         }
-   	                     System.out.println("Now, what is the vertical height of the prism?");
-                       	 do {
-   	                         input = sc.nextLine();
-   	                         if (input.equalsIgnoreCase("home")) {
-   	                         	break;
-   	                         }
-   	                         else if (input.equalsIgnoreCase("exit")) {
-   	                         	break;
-   	                         }
-   	                         try {
-   	                         	vHeight = Double.parseDouble(input);
-   	                         }
-   	                         catch (NumberFormatException e) {
-   	                         	System.out.println("That's not a valid height, please enter the height again: ");
-   	                         	continue;
-   	                         }
-   	                         if (vHeight<0) {
-   	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-   	                             vHeight = 0;
-   	                             continue;
-   	                         }
-   	                         break;
-                       	 } while (!input.equalsIgnoreCase("exit"));
-                       	 if (input.equalsIgnoreCase("home")) {
-   	                         	break;
-   	                         }
-   	                     if (input.equalsIgnoreCase("exit")) {
-   	                         	break;
-   	                         }
+//                        	System.out.println("What is the side length of the triangular base?");
+//                       	 do {
+//   	                         input = sc.nextLine();
+//   	                         if (input.equalsIgnoreCase("home")) {
+//   	                         	break;
+//   	                         }
+//   	                         else if (input.equalsIgnoreCase("exit")) {
+//   	                         	break;
+//   	                         }
+//   	                         try {
+//   	                         	bLength = Double.parseDouble(input);
+//   	                         }
+//   	                         catch (NumberFormatException e) {
+//   	                         	System.out.println("That's not a valid length, please enter the length again: ");
+//   	                         	continue;
+//   	                         }
+//   	                         if (bLength<0) {
+//   	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
+//   	                             bLength = 0;
+//   	                             continue;
+//   	                         }
+//   	                         break;
+//                       	 } while (!input.equalsIgnoreCase("exit"));
+//                       	 if (input.equalsIgnoreCase("home")) {
+//   	                         	break;
+//   	                         }
+//   	                     if (input.equalsIgnoreCase("exit")) {
+//   	                         	break;
+//   	                         }
+                        	bLength = getValue("side length of the triangular base");
+                            if (bLength == -1) {
+                                input = "home";	
+                       		 break;
+                                }
+                            if (bLength == -2) {
+                                input = "exit";	
+                           	 break;
+                            }
+//   	                     System.out.println("Now, what is the height of the triangular base?");
+//                       	 do {
+//   	                         input = sc.nextLine();
+//   	                         if (input.equalsIgnoreCase("home")) {
+//   	                         	break;
+//   	                         }
+//   	                         else if (input.equalsIgnoreCase("exit")) {
+//   	                         	break;
+//   	                         }
+//   	                         try {
+//   	                         	bHeight = Double.parseDouble(input);
+//   	                         }
+//   	                         catch (NumberFormatException e) {
+//   	                         	System.out.println("That's not a valid height, please enter the height again: ");
+//   	                         	continue;
+//   	                         }
+//   	                         if (bHeight<0) {
+//   	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//   	                             bHeight = 0;
+//   	                             continue;
+//   	                         }
+//   	                         break;
+//                       	 } while (!input.equalsIgnoreCase("exit"));
+//                       	 if (input.equalsIgnoreCase("home")) {
+//   	                         	break;
+//   	                         }
+//   	                     if (input.equalsIgnoreCase("exit")) {
+//   	                         	break;
+//   	                         }
+                           	bHeight = getValue("height of the triangular base");
+                            if (bHeight == -1) {
+                                input = "home";	
+                       		 break;
+                                }
+                            if (bHeight == -2) {
+                                input = "exit";	
+                           	 break;
+                                }
+//   	                     System.out.println("Now, what is the vertical height of the prism?");
+//                       	 do {
+//   	                         input = sc.nextLine();
+//   	                         if (input.equalsIgnoreCase("home")) {
+//   	                         	break;
+//   	                         }
+//   	                         else if (input.equalsIgnoreCase("exit")) {
+//   	                         	break;
+//   	                         }
+//   	                         try {
+//   	                         	vHeight = Double.parseDouble(input);
+//   	                         }
+//   	                         catch (NumberFormatException e) {
+//   	                         	System.out.println("That's not a valid height, please enter the height again: ");
+//   	                         	continue;
+//   	                         }
+//   	                         if (vHeight<0) {
+//   	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//   	                             vHeight = 0;
+//   	                             continue;
+//   	                         }
+//   	                         break;
+//                       	 } while (!input.equalsIgnoreCase("exit"));
+//                       	 if (input.equalsIgnoreCase("home")) {
+//   	                         	break;
+//   	                         }
+//   	                     if (input.equalsIgnoreCase("exit")) {
+//   	                         	break;
+//   	                         }
+                            vHeight = getValue("vertical height");
+                            if (vHeight == -1) {
+                                input = "home";	
+                       		 break;
+                                }
+                            if (vHeight == -2) {
+                                input = "exit";	
+                           	 break;
+                                }
    	                  if (type.equals("prism")) {
 	                 		triPrism1.setWidth(bHeight);
 	                 		triPrism1.setLength(bLength);
@@ -540,8 +633,9 @@ public class ModularityProject {
                     	System.out.println("That's not a valid answer, please answer yes or no: Do you know the dimensions of the shape? ");
                     	continue;
                     }
-                } while(!input.trim().equalsIgnoreCase("exit"));
-                }
+                } while(!input.trim().equalsIgnoreCase("exit")); 
+                } 
+                
                 else if (input.equalsIgnoreCase("rectangular")||input.equalsIgnoreCase("r")) {
                 	if (type.equals("prism")){
                 		System.out.println("Is the shape a cube?");
@@ -586,64 +680,82 @@ public class ModularityProject {
                     	if (type.equals("pyramid")) {
                     		double bLength = 0;
                     		double height = 0;
-                    		System.out.println("What is the side length of the base?");
-                       	 do {
-   	                         input = sc.nextLine();
-   	                         if (input.equalsIgnoreCase("home")) {
-   	                         	break;
-   	                         }
-   	                         else if (input.equalsIgnoreCase("exit")) {
-   	                         	break;
-   	                         }
-   	                         try {
-   	                         	bLength = Double.parseDouble(input);
-   	                         }
-   	                         catch (NumberFormatException e) {
-   	                         	System.out.println("That's not a valid length, please enter the length again: ");
-   	                         	continue;
-   	                         }
-   	                         if (bLength<0) {
-   	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
-   	                             bLength = 0;
-   	                             continue;
-   	                         }
-   	                         break;
-                       	 } while (!input.equalsIgnoreCase("exit"));
-                       	 if (input.equalsIgnoreCase("home")) {
-   	                         	break;
-   	                         }
-   	                     if (input.equalsIgnoreCase("exit")) {
-   	                         	break;
-   	                         }
-   	                     System.out.println("Now, what is the vertical height of the pyramid?");
-                       	 do {
-   	                         input = sc.nextLine();
-   	                         if (input.equalsIgnoreCase("home")) {
-   	                         	break;
-   	                         }
-   	                         else if (input.equalsIgnoreCase("exit")) {
-   	                         	break;
-   	                         }
-   	                         try {
-   	                         	height = Double.parseDouble(input);
-   	                         }
-   	                         catch (NumberFormatException e) {
-   	                         	System.out.println("That's not a valid height, please enter the height again: ");
-   	                         	continue;
-   	                         }
-   	                         if (height<0) {
-   	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-   	                             height = 0;
-   	                             continue;
-   	                         }
-   	                         break;
-                       	 } while (!input.equalsIgnoreCase("exit"));
-                       	 if (input.equalsIgnoreCase("home")) {
-   	                         	break;
-   	                         }
-   	                     if (input.equalsIgnoreCase("exit")) {
-   	                         	break;
-   	                         }
+//                    		System.out.println("What is the side length of the base?");
+//                       	 do {
+//   	                         input = sc.nextLine();
+//   	                         if (input.equalsIgnoreCase("home")) {
+//   	                         	break;
+//   	                         }
+//   	                         else if (input.equalsIgnoreCase("exit")) {
+//   	                         	break;
+//   	                         }
+//   	                         try {
+//   	                         	bLength = Double.parseDouble(input);
+//   	                         }
+//   	                         catch (NumberFormatException e) {
+//   	                         	System.out.println("That's not a valid length, please enter the length again: ");
+//   	                         	continue;
+//   	                         }
+//   	                         if (bLength<0) {
+//   	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
+//   	                             bLength = 0;
+//   	                             continue;
+//   	                         }
+//   	                         break;
+//                       	 } while (!input.equalsIgnoreCase("exit"));
+//                       	 if (input.equalsIgnoreCase("home")) {
+//   	                         	break;
+//   	                         }
+//   	                     if (input.equalsIgnoreCase("exit")) {
+//   	                         	break;
+//   	                         }
+                    		bLength = getValue("side length of the base");
+                            if (bLength == -1) {
+                                input = "home";	
+                       		 break;
+                                }
+                            if (bLength == -2) {
+                                input = "exit";	
+                           	 break;
+                                }
+//   	                     System.out.println("Now, what is the vertical height of the pyramid?");
+//                       	 do {
+//   	                         input = sc.nextLine();
+//   	                         if (input.equalsIgnoreCase("home")) {
+//   	                         	break;
+//   	                         }
+//   	                         else if (input.equalsIgnoreCase("exit")) {
+//   	                         	break;
+//   	                         }
+//   	                         try {
+//   	                         	height = Double.parseDouble(input);
+//   	                         }
+//   	                         catch (NumberFormatException e) {
+//   	                         	System.out.println("That's not a valid height, please enter the height again: ");
+//   	                         	continue;
+//   	                         }
+//   	                         if (height<0) {
+//   	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//   	                             height = 0;
+//   	                             continue;
+//   	                         }
+//   	                         break;
+//                       	 } while (!input.equalsIgnoreCase("exit"));
+//                       	 if (input.equalsIgnoreCase("home")) {
+//   	                         	break;
+//   	                         }
+//   	                     if (input.equalsIgnoreCase("exit")) {
+//   	                         	break;
+//   	                         }
+                            height = getValue("vertical height");
+                            if (height == -1) {
+                                input = "home";	
+                       		 break;
+                                }
+                            if (height == -2) {
+                                input = "exit";	
+                           	 break;
+                                }
    	                 		SquarePyramid sqPyramid1 = new SquarePyramid(bLength, height);
    	                 		sqPyramid1.printSA();
    	                 		sqPyramid1.printVolume();
@@ -654,93 +766,120 @@ public class ModularityProject {
                     		double bLength = 0;
                     		double bWidth = 0;
                     		double vHeight = 0;
-                    		System.out.println("What is the length of the base?");
-                          	 do {
-      	                         input = sc.nextLine();
-      	                         if (input.equalsIgnoreCase("home")) {
-      	                         	break;
-      	                         }
-      	                         else if (input.equalsIgnoreCase("exit")) {
-      	                         	break;
-      	                         }
-      	                         try {
-      	                         	bLength = Double.parseDouble(input);
-      	                         }
-      	                         catch (NumberFormatException e) {
-      	                         	System.out.println("That's not a valid length, please enter the length again: ");
-      	                         	continue;
-      	                         }
-      	                         if (bLength<0) {
-      	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
-      	                             bLength = 0;
-      	                             continue;
-      	                         }
-      	                         break;
-                          	 } while (!input.equalsIgnoreCase("exit"));
-                          	 if (input.equalsIgnoreCase("home")) {
-      	                         	break;
-      	                         }
-      	                     if (input.equalsIgnoreCase("exit")) {
-      	                         	break;
-      	                         }
-      	                     System.out.println("Now, what is the width of the base?");
-                          	 do {
-      	                         input = sc.nextLine();
-      	                         if (input.equalsIgnoreCase("home")) {
-      	                         	break;
-      	                         }
-      	                         else if (input.equalsIgnoreCase("exit")) {
-      	                         	break;
-      	                         }
-      	                         try {
-      	                         	bWidth = Double.parseDouble(input);
-      	                         }
-      	                         catch (NumberFormatException e) {
-      	                         	System.out.println("That's not a valid height, please enter the height again: ");
-      	                         	continue;
-      	                         }
-      	                         if (bWidth<0) {
-      	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-      	                             bWidth = 0;
-      	                             continue;
-      	                         }
-      	                         break;
-                          	 } while (!input.equalsIgnoreCase("exit"));
-                          	 if (input.equalsIgnoreCase("home")) {
-      	                         	break;
-      	                         }
-      	                     if (input.equalsIgnoreCase("exit")) {
-      	                         	break;
-      	                         }
-      	                     System.out.println("Now, what is the vertical height of the prism?");
-                          	 do {
-      	                         input = sc.nextLine();
-      	                         if (input.equalsIgnoreCase("home")) {
-      	                         	break;
-      	                         }
-      	                         else if (input.equalsIgnoreCase("exit")) {
-      	                         	break;
-      	                         }
-      	                         try {
-      	                         	vHeight = Double.parseDouble(input);
-      	                         }
-      	                         catch (NumberFormatException e) {
-      	                         	System.out.println("That's not a valid height, please enter the height again: ");
-      	                         	continue;
-      	                         }
-      	                         if (vHeight<0) {
-      	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-      	                             vHeight = 0;
-      	                             continue;
-      	                         }
-      	                         break;
-                          	 } while (!input.equalsIgnoreCase("exit"));
-                          	 if (input.equalsIgnoreCase("home")) {
-      	                         	break;
-      	                         }
-      	                     if (input.equalsIgnoreCase("exit")) {
-      	                         	break;
-      	                         }
+//                    		System.out.println("What is the length of the base?");
+//                          	 do {
+//      	                         input = sc.nextLine();
+//      	                         if (input.equalsIgnoreCase("home")) {
+//      	                         	break;
+//      	                         }
+//      	                         else if (input.equalsIgnoreCase("exit")) {
+//      	                         	break;
+//      	                         }
+//      	                         try {
+//      	                         	bLength = Double.parseDouble(input);
+//      	                         }
+//      	                         catch (NumberFormatException e) {
+//      	                         	System.out.println("That's not a valid length, please enter the length again: ");
+//      	                         	continue;
+//      	                         }
+//      	                         if (bLength<0) {
+//      	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
+//      	                             bLength = 0;
+//      	                             continue;
+//      	                         }
+//      	                         break;
+//                          	 } while (!input.equalsIgnoreCase("exit"));
+//                          	 if (input.equalsIgnoreCase("home")) {
+//      	                         	break;
+//      	                         }
+//      	                     if (input.equalsIgnoreCase("exit")) {
+//      	                         	break;
+//      	                         }
+                    		bLength = getValue("length of the base");
+                            if (bLength == -1) {
+                                input = "home";	
+                       		 break;
+                                }
+                            if (bLength == -2) {
+                                input = "exit";	
+                           	 break;
+                                }
+//      	                     System.out.println("Now, what is the width of the base?");
+//                          	 do {
+//      	                         input = sc.nextLine();
+//      	                         if (input.equalsIgnoreCase("home")) {
+//      	                         	break;
+//      	                         }
+//      	                         else if (input.equalsIgnoreCase("exit")) {
+//      	                         	break;
+//      	                         }
+//      	                         try {
+//      	                         	bWidth = Double.parseDouble(input);
+//      	                         }
+//      	                         catch (NumberFormatException e) {
+//      	                         	System.out.println("That's not a valid height, please enter the height again: ");
+//      	                         	continue;
+//      	                         }
+//      	                         if (bWidth<0) {
+//      	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//      	                             bWidth = 0;
+//      	                             continue;
+//      	                         }
+//      	                         break;
+//                          	 } while (!input.equalsIgnoreCase("exit"));
+//                          	 if (input.equalsIgnoreCase("home")) {
+//      	                         	break;
+//      	                         }
+//      	                     if (input.equalsIgnoreCase("exit")) {
+//      	                         	break;
+//      	                         }
+      	                   bWidth = getValue("width of the base");
+                           if (bWidth == -1) {
+                               input = "home";	
+                      		 break;
+                               }
+                           if (bWidth == -2) {
+                               input = "exit";	
+                          	 break;
+                               }
+//      	                     System.out.println("Now, what is the vertical height of the prism?");
+//                          	 do {
+//      	                         input = sc.nextLine();
+//      	                         if (input.equalsIgnoreCase("home")) {
+//      	                         	break;
+//      	                         }
+//      	                         else if (input.equalsIgnoreCase("exit")) {
+//      	                         	break;
+//      	                         }
+//      	                         try {
+//      	                         	vHeight = Double.parseDouble(input);
+//      	                         }
+//      	                         catch (NumberFormatException e) {
+//      	                         	System.out.println("That's not a valid height, please enter the height again: ");
+//      	                         	continue;
+//      	                         }
+//      	                         if (vHeight<0) {
+//      	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//      	                             vHeight = 0;
+//      	                             continue;
+//      	                         }
+//      	                         break;
+//                          	 } while (!input.equalsIgnoreCase("exit"));
+//                          	 if (input.equalsIgnoreCase("home")) {
+//      	                         	break;
+//      	                         }
+//      	                     if (input.equalsIgnoreCase("exit")) {
+//      	                         	break;
+//      	                         }
+                           vHeight = getValue("vertical height");
+                           if (vHeight == -1) {
+                               input = "home";	
+                      		 break;
+                               }
+                           if (vHeight == -2) {
+                               input = "exit";	
+                          	 break;
+                               }
       	                     RectangularPrism rectPrism1 = new RectangularPrism(bLength,bWidth,vHeight);
       	                     rectPrism1.printSA();
       	                     rectPrism1.printVolume();
@@ -749,35 +888,44 @@ public class ModularityProject {
                     	}
                     	else if (type.equals("cube")) {
                     		double sLength = 0;
-                    		System.out.println("What is the side length?");
-                         	 do {
-     	                         input = sc.nextLine();
-     	                         if (input.equalsIgnoreCase("home")) {
-     	                         	break;
-     	                         }
-     	                         else if (input.equalsIgnoreCase("exit")) {
-     	                         	break;
-     	                         }
-     	                         try {
-     	                         	sLength = Double.parseDouble(input);
-     	                         }
-     	                         catch (NumberFormatException e) {
-     	                         	System.out.println("That's not a valid length, please enter the length again: ");
-     	                         	continue;
-     	                         }
-     	                         if (sLength<0) {
-     	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
-     	                             sLength = 0;
-     	                             continue;
-     	                         }
-     	                         break;
-                         	 } while (!input.equalsIgnoreCase("exit"));
-                         	 if (input.equalsIgnoreCase("home")) {
-     	                         	break;
-     	                         }
-     	                     if (input.equalsIgnoreCase("exit")) {
-     	                         	break;
-     	                         }
+//                    		System.out.println("What is the side length?");
+//                         	 do {
+//     	                         input = sc.nextLine();
+//     	                         if (input.equalsIgnoreCase("home")) {
+//     	                         	break;
+//     	                         }
+//     	                         else if (input.equalsIgnoreCase("exit")) {
+//     	                         	break;
+//     	                         }
+//     	                         try {
+//     	                         	sLength = Double.parseDouble(input);
+//     	                         }
+//     	                         catch (NumberFormatException e) {
+//     	                         	System.out.println("That's not a valid length, please enter the length again: ");
+//     	                         	continue;
+//     	                         }
+//     	                         if (sLength<0) {
+//     	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
+//     	                             sLength = 0;
+//     	                             continue;
+//     	                         }
+//     	                         break;
+//                         	 } while (!input.equalsIgnoreCase("exit"));
+//                         	 if (input.equalsIgnoreCase("home")) {
+//     	                         	break;
+//     	                         }
+//     	                     if (input.equalsIgnoreCase("exit")) {
+//     	                         	break;
+//     	                         }
+                    		sLength = getValue("side length");
+                            if (sLength == -1) {
+                                input = "home";	
+                       		 break;
+                                }
+                            if (sLength == -2) {
+                                input = "exit";	
+                           	 break;
+                                }
      	                     Cube cube1 = new Cube(sLength);
      	                     cube1.printSA();
      	                     cube1.printVolume();
@@ -801,64 +949,82 @@ public class ModularityProject {
                         	if (type.equals("pyramid")) {
                         		double bLength = 0;
                         		double height = 0;
-                        		System.out.println("What is the side length of the base?");
-                           	 do {
-       	                         input = sc.nextLine();
-       	                         if (input.equalsIgnoreCase("home")) {
-       	                         	break;
-       	                         }
-       	                         else if (input.equalsIgnoreCase("exit")) {
-       	                         	break;
-       	                         }
-       	                         try {
-       	                         	bLength = Double.parseDouble(input);
-       	                         }
-       	                         catch (NumberFormatException e) {
-       	                         	System.out.println("That's not a valid length, please enter the length again: ");
-       	                         	continue;
-       	                         }
-       	                         if (bLength<0) {
-       	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
-       	                             bLength = 0;
-       	                             continue;
-       	                         }
-       	                         break;
-                           	 } while (!input.equalsIgnoreCase("exit"));
-                           	 if (input.equalsIgnoreCase("home")) {
-       	                         	break;
-       	                         }
-       	                     if (input.equalsIgnoreCase("exit")) {
-       	                         	break;
-       	                         }
-       	                     System.out.println("Now, what is the vertical height of the pyramid?");
-                           	 do {
-       	                         input = sc.nextLine();
-       	                         if (input.equalsIgnoreCase("home")) {
-       	                         	break;
-       	                         }
-       	                         else if (input.equalsIgnoreCase("exit")) {
-       	                         	break;
-       	                         }
-       	                         try {
-       	                         	height = Double.parseDouble(input);
-       	                         }
-       	                         catch (NumberFormatException e) {
-       	                         	System.out.println("That's not a valid height, please enter the height again: ");
-       	                         	continue;
-       	                         }
-       	                         if (height<0) {
-       	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-       	                             height = 0;
-       	                             continue;
-       	                         }
-       	                         break;
-                           	 } while (!input.equalsIgnoreCase("exit"));
-                           	 if (input.equalsIgnoreCase("home")) {
-       	                         	break;
-       	                         }
-       	                     if (input.equalsIgnoreCase("exit")) {
-       	                         	break;
-       	                         }
+//                        		System.out.println("What is the side length of the base?");
+//                           	 do {
+//       	                         input = sc.nextLine();
+//       	                         if (input.equalsIgnoreCase("home")) {
+//       	                         	break;
+//       	                         }
+//       	                         else if (input.equalsIgnoreCase("exit")) {
+//       	                         	break;
+//       	                         }
+//       	                         try {
+//       	                         	bLength = Double.parseDouble(input);
+//       	                         }
+//       	                         catch (NumberFormatException e) {
+//       	                         	System.out.println("That's not a valid length, please enter the length again: ");
+//       	                         	continue;
+//       	                         }
+//       	                         if (bLength<0) {
+//       	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
+//       	                             bLength = 0;
+//       	                             continue;
+//       	                         }
+//       	                         break;
+//                           	 } while (!input.equalsIgnoreCase("exit"));
+//                           	 if (input.equalsIgnoreCase("home")) {
+//       	                         	break;
+//       	                         }
+//       	                     if (input.equalsIgnoreCase("exit")) {
+//       	                         	break;
+//       	                         }
+                        		bLength = getValue("side length of the base");
+                                if (bLength == -1) {
+                                    input = "home";	
+                           		 break;
+                                    }
+                                if (bLength == -2) {
+                                    input = "exit";	
+                               	 break;
+                                    }
+//       	                     System.out.println("Now, what is the vertical height of the pyramid?");
+//                           	 do {
+//       	                         input = sc.nextLine();
+//       	                         if (input.equalsIgnoreCase("home")) {
+//       	                         	break;
+//       	                         }
+//       	                         else if (input.equalsIgnoreCase("exit")) {
+//       	                         	break;
+//       	                         }
+//       	                         try {
+//       	                         	height = Double.parseDouble(input);
+//       	                         }
+//       	                         catch (NumberFormatException e) {
+//       	                         	System.out.println("That's not a valid height, please enter the height again: ");
+//       	                         	continue;
+//       	                         }
+//       	                         if (height<0) {
+//       	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//       	                             height = 0;
+//       	                             continue;
+//       	                         }
+//       	                         break;
+//                           	 } while (!input.equalsIgnoreCase("exit"));
+//                           	 if (input.equalsIgnoreCase("home")) {
+//       	                         	break;
+//       	                         }
+//       	                     if (input.equalsIgnoreCase("exit")) {
+//       	                         	break;
+//       	                         }
+                                height = getValue("vertical height");
+                                if (height == -1) {
+                                    input = "home";	
+                           		 break;
+                                    }
+                                if (height == -2) {
+                                    input = "exit";	
+                               	 break;
+                                    }
        	                 		sqPyramid2.setbLength(bLength);
        	                 		sqPyramid2.setHeight(height);
        	                 		sqPyramid2.calcSA();
@@ -870,93 +1036,121 @@ public class ModularityProject {
                         		double bLength = 0;
                         		double bWidth = 0;
                         		double vHeight = 0;
-                        		System.out.println("What is the length of the base?");
-                              	 do {
-          	                         input = sc.nextLine();
-          	                         if (input.equalsIgnoreCase("home")) {
-          	                         	break;
-          	                         }
-          	                         else if (input.equalsIgnoreCase("exit")) {
-          	                         	break;
-          	                         }
-          	                         try {
-          	                         	bLength = Double.parseDouble(input);
-          	                         }
-          	                         catch (NumberFormatException e) {
-          	                         	System.out.println("That's not a valid length, please enter the length again: ");
-          	                         	continue;
-          	                         }
-          	                         if (bLength<0) {
-          	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
-          	                             bLength = 0;
-          	                             continue;
-          	                         }
-          	                         break;
-                              	 } while (!input.equalsIgnoreCase("exit"));
-                              	 if (input.equalsIgnoreCase("home")) {
-          	                         	break;
-          	                         }
-          	                     if (input.equalsIgnoreCase("exit")) {
-          	                         	break;
-          	                         }
-          	                     System.out.println("Now, what is the width of the base?");
-                              	 do {
-          	                         input = sc.nextLine();
-          	                         if (input.equalsIgnoreCase("home")) {
-          	                         	break;
-          	                         }
-          	                         else if (input.equalsIgnoreCase("exit")) {
-          	                         	break;
-          	                         }
-          	                         try {
-          	                         	bWidth = Double.parseDouble(input);
-          	                         }
-          	                         catch (NumberFormatException e) {
-          	                         	System.out.println("That's not a valid height, please enter the height again: ");
-          	                         	continue;
-          	                         }
-          	                         if (bWidth<0) {
-          	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-          	                             bWidth = 0;
-          	                             continue;
-          	                         }
-          	                         break;
-                              	 } while (!input.equalsIgnoreCase("exit"));
-                              	 if (input.equalsIgnoreCase("home")) {
-          	                         	break;
-          	                         }
-          	                     if (input.equalsIgnoreCase("exit")) {
-          	                         	break;
-          	                         }
-          	                     System.out.println("Now, what is the vertical height of the prism?");
-                              	 do {
-          	                         input = sc.nextLine();
-          	                         if (input.equalsIgnoreCase("home")) {
-          	                         	break;
-          	                         }
-          	                         else if (input.equalsIgnoreCase("exit")) {
-          	                         	break;
-          	                         }
-          	                         try {
-          	                         	vHeight = Double.parseDouble(input);
-          	                         }
-          	                         catch (NumberFormatException e) {
-          	                         	System.out.println("That's not a valid height, please enter the height again: ");
-          	                         	continue;
-          	                         }
-          	                         if (vHeight<0) {
-          	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
-          	                             vHeight = 0;
-          	                             continue;
-          	                         }
-          	                         break;
-                              	 } while (!input.equalsIgnoreCase("exit"));
-                              	 if (input.equalsIgnoreCase("home")) {
-          	                         	break;
-          	                         }
-          	                     if (input.equalsIgnoreCase("exit")) {
-          	                         	break;
-          	                         }
+//                        		System.out.println("What is the length of the base?");
+//                              	 do {
+//          	                         input = sc.nextLine();
+//          	                         if (input.equalsIgnoreCase("home")) {
+//          	                         	break;
+//          	                         }
+//          	                         else if (input.equalsIgnoreCase("exit")) {
+//          	                         	break;
+//          	                         }
+//          	                         try {
+//          	                         	bLength = Double.parseDouble(input);
+//          	                         }
+//          	                         catch (NumberFormatException e) {
+//          	                         	System.out.println("That's not a valid length, please enter the length again: ");
+//          	                         	continue;
+//          	                         }
+//          	                         if (bLength<0) {
+//          	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
+//          	                             bLength = 0;
+//          	                             continue;
+//          	                         }
+//          	                         break;
+//                              	 } while (!input.equalsIgnoreCase("exit"));
+//                              	 if (input.equalsIgnoreCase("home")) {
+//          	                         	break;
+//          	                         }
+//          	                     if (input.equalsIgnoreCase("exit")) {
+//          	                         	break;
+//          	                         }
+                        		bLength = getValue("length of the base");
+                                if (bLength == -1) {
+                                    input = "home";	
+                           		 break;
+                                    }
+                                if (bLength == -2) {
+                                    input = "exit";	
+                               	 break;
+                                    }
+//          	                     System.out.println("Now, what is the width of the base?");
+//                              	 do {
+//          	                         input = sc.nextLine();
+//          	                         if (input.equalsIgnoreCase("home")) {
+//          	                         	break;
+//          	                         }
+//          	                         else if (input.equalsIgnoreCase("exit")) {
+//          	                         	break;
+//          	                         }
+//          	                         try {
+//          	                         	bWidth = Double.parseDouble(input);
+//          	                         }
+//          	                         catch (NumberFormatException e) {
+//          	                         	System.out.println("That's not a valid height, please enter the height again: ");
+//          	                         	continue;
+//          	                         }
+//          	                         if (bWidth<0) {
+//          	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//          	                             bWidth = 0;
+//          	                             continue;
+//          	                         }
+//          	                         break;
+//                              	 } while (!input.equalsIgnoreCase("exit"));
+//                              	 if (input.equalsIgnoreCase("home")) {
+//          	                         	break;
+//          	                         }
+//          	                     if (input.equalsIgnoreCase("exit")) {
+//          	                         	break;
+//          	                         }
+                                bWidth = getValue("width of the base");
+                                if (bWidth == -1) {
+                                    input = "home";	
+                           		 break;
+                                    }
+                                if (bWidth == -2) {
+                                    input = "exit";	
+                               	 break;
+                                    }
+//          	                     System.out.println("Now, what is the vertical height of the prism?");
+//                              	 do {
+//          	                         input = sc.nextLine();
+//          	                         if (input.equalsIgnoreCase("home")) {
+//          	                         	break;
+//          	                         }
+//          	                         else if (input.equalsIgnoreCase("exit")) {
+//          	                         	break;
+//          	                         }
+//          	                         try {
+//          	                         	vHeight = Double.parseDouble(input);
+//          	                         }
+//          	                         catch (NumberFormatException e) {
+//          	                         	System.out.println("That's not a valid height, please enter the height again: ");
+//          	                         	continue;
+//          	                         }
+//          	                         if (vHeight<0) {
+//          	                             System.out.println("That's a negative height. That's not possible. Please enter the correct height.");
+//          	                             vHeight = 0;
+//          	                             continue;
+//          	                         }
+//          	                         break;
+//                              	 } while (!input.equalsIgnoreCase("exit"));
+//                              	 if (input.equalsIgnoreCase("home")) {
+//          	                         	break;
+//          	                         }
+//          	                     if (input.equalsIgnoreCase("exit")) {
+//          	                         	break;
+//          	                         }
+                                vHeight = getValue("vertical height");
+                                if (vHeight == -1) {
+                                    input = "home";	
+                           		 break;
+                                    }
+                                if (vHeight == -2) {
+                                    input = "exit";	
+                               	 break;
+                                    }
+                                
           	                     rectPrism2.setWidth(bWidth);
           	                     rectPrism2.setLength(bLength);
           	                     rectPrism2.setHeight(vHeight);
@@ -967,35 +1161,44 @@ public class ModularityProject {
                         	}
                         	else if (type.equals("cube")) {
                         		double sLength = 0;
-                        		System.out.println("What is the side length?");
-                             	 do {
-         	                         input = sc.nextLine();
-         	                         if (input.equalsIgnoreCase("home")) {
-         	                         	break;
-         	                         }
-         	                         else if (input.equalsIgnoreCase("exit")) {
-         	                         	break;
-         	                         }
-         	                         try {
-         	                         	sLength = Double.parseDouble(input);
-         	                         }
-         	                         catch (NumberFormatException e) {
-         	                         	System.out.println("That's not a valid length, please enter the length again: ");
-         	                         	continue;
-         	                         }
-         	                         if (sLength<0) {
-         	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
-         	                             sLength = 0;
-         	                             continue;
-         	                         }
-         	                         break;
-                             	 } while (!input.equalsIgnoreCase("exit"));
-                             	 if (input.equalsIgnoreCase("home")) {
-         	                         	break;
-         	                         }
-         	                     if (input.equalsIgnoreCase("exit")) {
-         	                         	break;
-         	                         }
+//                        		System.out.println("What is the side length?");
+//                             	 do {
+//         	                         input = sc.nextLine();
+//         	                         if (input.equalsIgnoreCase("home")) {
+//         	                         	break;
+//         	                         }
+//         	                         else if (input.equalsIgnoreCase("exit")) {
+//         	                         	break;
+//         	                         }
+//         	                         try {
+//         	                         	sLength = Double.parseDouble(input);
+//         	                         }
+//         	                         catch (NumberFormatException e) {
+//         	                         	System.out.println("That's not a valid length, please enter the length again: ");
+//         	                         	continue;
+//         	                         }
+//         	                         if (sLength<0) {
+//         	                             System.out.println("That's a negative length. That's not possible. Please enter the correct length.");
+//         	                             sLength = 0;
+//         	                             continue;
+//         	                         }
+//         	                         break;
+//                             	 } while (!input.equalsIgnoreCase("exit"));
+//                             	 if (input.equalsIgnoreCase("home")) {
+//         	                         	break;
+//         	                         }
+//         	                     if (input.equalsIgnoreCase("exit")) {
+//         	                         	break;
+//         	                         }
+                        		sLength = getValue("side length");
+                                if (sLength == -1) {
+                                    input = "home";	
+                           		 break;
+                                    }
+                                if (sLength == -2) {
+                                    input = "exit";	
+                               	 break;
+                                    }
          	                     cube2.setLength(sLength);
          	                     cube2.calcSA();
          	                     cube2.calcVolume();
@@ -1032,5 +1235,35 @@ public class ModularityProject {
         } while(!input.trim().equalsIgnoreCase("exit"));
         System.out.println("The program is now closing, goodbye.");
         sc.close();
-            } 
-    }
+            }
+
+	public static double getValue(String measurement) {
+		double value = 0;
+		String input = "";
+		Scanner sc = new Scanner(System.in);
+		System.out.println("What is the " + measurement + "?");
+		do {
+			input = sc.nextLine();
+			if (input.equalsIgnoreCase("home")) {
+				return -1;
+			} else if (input.equalsIgnoreCase("exit")) {
+				return -2;
+			}
+			try {
+				value = Double.parseDouble(input);
+			} catch (NumberFormatException e) {
+				System.out.println("That's not a valid measurement, please enter the " + measurement + " again: ");
+				continue;
+			}
+			if (value < 0) {
+				System.out.println(
+						"That's a negative value. That's not possible. Please enter the correct measurement.");
+				value = 0;
+				continue;
+			}
+			break;
+		} while (!input.equalsIgnoreCase("exit"));
+		return value;
+	}
+
+}
