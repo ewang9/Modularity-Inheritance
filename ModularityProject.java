@@ -258,7 +258,7 @@ public class ModularityProject {
                          input = "exit";	
                     	 break;
                          }
-                     bHeight = getValue("height");
+                     bHeight = getValue("height of the base");
                      if (bHeight == -1) {
                          input = "home";	
                 		 break;
@@ -267,7 +267,7 @@ public class ModularityProject {
                          input = "exit";	
                     	 break;
                          }
-                     vHeight = getValue("height");
+                     vHeight = getValue("vertical height");
                      if (vHeight == -1) {
                          input = "home";	
                 		 break;
