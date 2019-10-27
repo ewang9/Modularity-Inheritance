@@ -7,6 +7,7 @@ public class EqTriPrism extends Prism{
         this.height = h;
         this.sideLength = l;
         this.volume = (altitude*sideLength/2)*height;
+        this.SA = (sideLength*altitude)+(height*sideLength*3);
     }
     
     public EqTriPrism(){
